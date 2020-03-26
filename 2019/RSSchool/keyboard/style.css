@@ -1,0 +1,100 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.center-block {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.keyboard {
+  width: 940px;
+  height: 380px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #31d8a0;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 940px;
+  height: 250px;
+  resize: none;
+}
+
+.key {
+  width: 59px;
+  height: 59px;
+  background-color: rgba(127, 255, 212, 0.5);
+  border-radius: 10px;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  opacity: 0.8;
+  text-align: center;
+  line-height: 59px;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.capsIndicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  opacity: 0;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: -363px;
+  margin-top: 159px;
+}
+
+.caps-active {
+  opacity: 70%;
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.key-doubleSize {
+  width: 118px;
+}
+
+.key-spacebar {
+  width: 320px;
+}
+
+.key::-moz-selection {
+  opacity: 0;
+}
+
+.key::selection {
+  opacity: 0;
+}
+
+textarea::-moz-selection {
+  background: orange;
+  color: white;
+  border-radius: 3px;
+}
+
+textarea::selection {
+  background: orange;
+  color: white;
+  border-radius: 3px;
+}
+/*# sourceMappingURL=style.css.map */
