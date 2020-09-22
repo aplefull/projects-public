@@ -6,3 +6,8 @@ A current list of projects:
  * RSSchool
    * core-js
    * algorithmic tasks
+   * virtual keyboard
+   * repair-design-project layout
+   * theyalow layout
+   * rsschool cv
+   * songbird quiz
