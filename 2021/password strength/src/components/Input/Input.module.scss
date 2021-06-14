@@ -1,0 +1,25 @@
+.inputWrapper {
+  width: 100%;
+  margin: 200px auto 0;
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 70%;
+    height: 34px;
+    border-radius: 10px;
+    background-color: rgb(49, 49, 49);
+    outline: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 24px;
+
+    &::selection {
+      color: crimson;
+      background-color: rgba(29, 29, 29, 0);
+    }
+  }
+}
