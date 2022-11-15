@@ -1,0 +1,29 @@
+.buttonWrapper {
+  width: 70px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  button {
+    padding: 0;
+    width: 60px;
+    height: 25px;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid lightgray;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#fff, 5%);
+    }
+
+    &:active {
+      background-color: darken(#fff, 10%);
+    }
+  }
+}
