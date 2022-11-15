@@ -12,7 +12,9 @@ A current list of projects:
       * theyalow layout
       * rsschool cv
       * songbird quiz
+      * weather app
   
   * 2020
     * Pixel Sort: Sorts pixels of an image using NodeJs
     * String Combinations
+    * Button That avoids the mouse
