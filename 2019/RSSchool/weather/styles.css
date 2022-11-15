@@ -1,0 +1,930 @@
+@font-face {
+  font-family: 'Eaves';
+  src: url(assets/fonts/MrEavesXLModOT-Reg.ttf);
+}
+
+@font-face {
+  font-family: 'Eaves-Bold';
+  src: url(assets/fonts/MrEavesXLModOT-Heavy.ttf);
+}
+
+@font-face {
+  font-family: 'Eaves-Light';
+  src: url(assets/fonts/MrEavesXLModOT-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161616;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #303030;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #070707;
+}
+
+::-moz-selection {
+  color: orange;
+}
+
+::selection {
+  color: orange;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  background-image: url("assets/images/desktop/default.jpg");
+  margin: 0px;
+  height: 100vh;
+  -webkit-transition: ease-in-out 1s;
+  transition: ease-in-out 1s;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+.nav-mobile,
+.location-wrapper-mobile,
+.main-info-mobile,
+.additional-info-mobile {
+  display: none;
+}
+
+.first-loading-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: ease-in-out 1s;
+  transition: ease-in-out 1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first-loading-overlay p {
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2vw;
+  color: white;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  opacity: 0.8;
+}
+
+.loading-overlay p {
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+@media only screen and (max-width: 750px) {
+  html {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+  }
+  body {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-size: unset;
+  }
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .first-loading-overlay p {
+    font-size: 7vw;
+  }
+  .left,
+  .right {
+    display: none !important;
+  }
+  .nav-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+  .nav-mobile input {
+    width: 0px;
+    opacity: 0;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 10vw;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-transition-property: width, opacity;
+    transition-property: width, opacity;
+    -webkit-transition-duration: .5s, .3s;
+            transition-duration: .5s, .3s;
+  }
+  .nav-mobile input:focus {
+    outline: none;
+  }
+  .nav-mobile img {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  .location-wrapper-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .location-wrapper-mobile .city-name-mobile {
+    color: white;
+    font-family: Eaves-Bold, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    margin: 0px;
+    margin-left: 10vw;
+  }
+  .location-wrapper-mobile .date-wrapper {
+    margin-top: -5px;
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 40px;
+  }
+  .location-wrapper-mobile .date-wrapper .time {
+    margin-left: 10vw;
+  }
+  .location-wrapper-mobile .date-wrapper .period,
+  .location-wrapper-mobile .date-wrapper .dash,
+  .location-wrapper-mobile .date-wrapper .week-day,
+  .location-wrapper-mobile .date-wrapper .day,
+  .location-wrapper-mobile .date-wrapper .month,
+  .location-wrapper-mobile .date-wrapper .year {
+    margin-left: 5px;
+  }
+  .main-info-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .main-info-mobile .temperature-mobile {
+    margin-top: 150px;
+    margin-left: 5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .main-info-mobile .temperature-mobile .temp {
+    margin: 0px;
+    color: white;
+    font-size: 140px;
+    font-family: Eaves-Light, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+  }
+  .main-info-mobile .temperature-mobile .degree {
+    margin: 0px;
+    color: white;
+    font-size: 70px;
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .main-info-mobile .weather-description-mobile {
+    margin-top: -10px;
+    margin-left: 5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .main-info-mobile .weather-description-mobile img {
+    height: 30px;
+    width: auto;
+  }
+  .main-info-mobile .weather-description-mobile .description {
+    color: white;
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 35px;
+    margin: 0;
+    margin-bottom: 30px;
+    margin-left: 20px;
+  }
+  .additional-info-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .additional-info-mobile .wind,
+  .additional-info-mobile .rain,
+  .additional-info-mobile .humidity {
+    width: 30vw;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .additional-info-mobile .wind p,
+  .additional-info-mobile .rain p,
+  .additional-info-mobile .humidity p {
+    margin: 0px;
+    text-align: center;
+  }
+  .additional-info-mobile .wind .name,
+  .additional-info-mobile .rain .name,
+  .additional-info-mobile .humidity .name {
+    color: rgba(180, 184, 187, 0.9);
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .additional-info-mobile .wind .value,
+  .additional-info-mobile .rain .value,
+  .additional-info-mobile .humidity .value {
+    color: white;
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    margin-left: -5px;
+  }
+  .additional-info-mobile .wind .units,
+  .additional-info-mobile .rain .units,
+  .additional-info-mobile .humidity .units {
+    color: white;
+    font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-left: -5px;
+  }
+  .bar-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+  .bar-wrapper .bar-back,
+  .bar-wrapper .bar-front {
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+  }
+  .bar-wrapper .bar-back {
+    background-color: rgba(174, 181, 185, 0.5);
+  }
+  .bar-wrapper .bar-front {
+    width: 0%;
+    background-color: #23c96d;
+    margin-top: -4px;
+    -webkit-transition: ease-in-out 1.6s;
+    transition: ease-in-out 1.6s;
+  }
+}
+
+.left {
+  height: 100%;
+  width: 75vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .nav {
+  width: 100%;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.left .nav .celsius {
+  width: 44px;
+  height: 44px;
+  margin-left: 60px;
+  border-radius: 5px 0 0 5px;
+  -webkit-transition: ease-in 0.15s;
+  transition: ease-in 0.15s;
+  background: rgba(180, 184, 187, 0.4);
+  vertical-align: middle;
+  font-family: Montserrat-Bold;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  line-height: 44px;
+  color: #ffffff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.left .nav .fahrenheit {
+  width: 44px;
+  height: 44px;
+  border-radius: 0 5px 5px 0;
+  -webkit-transition: ease-in 0.15s;
+  transition: ease-in 0.15s;
+  background: rgba(180, 184, 187, 0.4);
+  vertical-align: middle;
+  font-family: Montserrat-Bold;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  line-height: 44px;
+  color: #ffffff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.left .nav .celsius:hover,
+.left .nav .fahrenheit:hover {
+  cursor: pointer;
+  background: rgba(67, 135, 187, 0.4);
+}
+
+.left .nav input {
+  width: 274px;
+  height: 44px;
+  margin-left: 60px;
+  border-radius: 5px 0 0 5px;
+  background: rgba(76, 82, 85, 0.4);
+  border: 1px solid rgba(228, 227, 227, 0.2);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 20px;
+  -webkit-transition: ease-in 0.15s;
+  transition: ease-in 0.15s;
+}
+
+.left .nav button {
+  width: 101px;
+  height: 44px;
+  border-radius: 0 5px 5px 0;
+  -webkit-transition: ease-in 0.15s;
+  transition: ease-in 0.15s;
+  background: rgba(174, 181, 185, 0.5);
+  border: none;
+  color: white;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.left .main-info {
+  width: 100%;
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  min-height: 350px;
+}
+
+.left .main-info .temperature {
+  margin-left: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .main-info .temperature .temp {
+  margin: 0px;
+  color: white;
+  font-size: 250px;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .main-info .temperature .degree {
+  margin: 0px;
+  color: white;
+  font-size: 100px;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .main-info .weather-description {
+  margin-left: 40px;
+  margin-right: 10px;
+  margin-bottom: 60px;
+  color: white;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .main-info .weather-description .description {
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 10px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .main-info .weather-description .quote {
+  font-family: Eaves-Light, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  margin: 0px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .additional-info {
+  width: 100%;
+  height: 10vh;
+  min-height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.left .additional-info .date-wrapper {
+  margin-top: 40px;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .additional-info .date-wrapper .time {
+  margin-left: 60px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .additional-info .date-wrapper .period,
+.left .additional-info .date-wrapper .dash,
+.left .additional-info .date-wrapper .week-day,
+.left .additional-info .date-wrapper .day,
+.left .additional-info .date-wrapper .month,
+.left .additional-info .date-wrapper .year {
+  margin-left: 5px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .additional-info .location-wrapper {
+  margin-top: 40px;
+  margin-right: 60px;
+  margin-left: 20px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.left .additional-info .location-wrapper .location {
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  color: white;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right {
+  height: 100%;
+  width: 25vw;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .city {
+  width: 100%;
+  height: 15vh;
+  min-height: 70px;
+  background-color: #141414;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.right .city .name-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60%;
+}
+
+.right .city .name-wrapper .city-text {
+  color: white;
+  font-family: Eaves-light, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  opacity: 0.8;
+  margin: 0px;
+  margin-left: 40px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .city .name-wrapper .city-name {
+  color: white;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 130%;
+  font-weight: 600;
+  word-break: break-all;
+  margin: 0px;
+  margin-left: 20px;
+}
+
+.right .city button {
+  width: 100px;
+  height: 35px;
+  margin-right: 60px;
+  margin-left: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #141414;
+  color: white;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  -webkit-transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.5s;
+}
+
+.right .city button:hover {
+  cursor: pointer;
+}
+
+.right .city button:focus {
+  outline: none;
+}
+
+.right .city button:active {
+  color: aqua;
+  -webkit-transition: ease-in-out 0.1s;
+  transition: ease-in-out 0.1s;
+}
+
+.right .data {
+  width: 100%;
+  height: 85vh;
+  overflow-y: auto;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.right .data .desktop-input-wrapper {
+  height: 40px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -40px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .desktop-input-wrapper input {
+  width: 90%;
+  height: 39px;
+  padding: 0px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px solid rgba(76, 82, 85, 0.4);
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 26px;
+}
+
+.right .data .desktop-input-wrapper button {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  border: none;
+  border-bottom: 1px solid rgba(76, 82, 85, 0.4);
+  background-color: #141414;
+}
+
+.right .data .desktop-input-wrapper button img {
+  width: 40%;
+}
+
+.right .data .desktop-input-wrapper button:hover {
+  cursor: pointer;
+}
+
+.right .data .desktop-input-wrapper button:focus,
+.right .data .desktop-input-wrapper input:focus {
+  outline: none;
+}
+
+.right .data .weather-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .weather-details p {
+  color: black;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-left: 40px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .weather-details .details-table-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .weather-details .details-table-wrapper .left-table {
+  margin-left: 0px;
+  list-style-type: none;
+  color: gray;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+.right .data .weather-details .details-table-wrapper .left-table ul {
+  list-style-type: none;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .weather-details .details-table-wrapper .left-table ul li {
+  margin-bottom: 10px;
+}
+
+.right .data .weather-details .details-table-wrapper .right-table {
+  margin-right: 60px;
+  color: black;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .weather-details .details-table-wrapper .right-table ul {
+  list-style-type: none;
+}
+
+.right .data .weather-details .details-table-wrapper .right-table ul li {
+  margin-bottom: 10px;
+}
+
+.right .data .next-days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.right .data .next-days p {
+  color: black;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-left: 40px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .next-days .next-days-table-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .next-days .next-days-table-wrapper .left-table {
+  margin-left: 0px;
+  list-style-type: none;
+  color: gray;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+.right .data .next-days .next-days-table-wrapper .left-table ul {
+  list-style-type: none;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .next-days .next-days-table-wrapper .left-table ul li {
+  margin-bottom: 10px;
+}
+
+.right .data .next-days .next-days-table-wrapper .right-table {
+  margin-right: 60px;
+  color: black;
+  font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
+}
+
+.right .data .next-days .next-days-table-wrapper .right-table ul {
+  list-style-type: none;
+}
+
+.right .data .next-days .next-days-table-wrapper .right-table ul li {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1350px) {
+  .right .city .name-wrapper .city-text {
+    margin-left: 20px;
+  }
+  .right .city button {
+    margin-right: 20px;
+  }
+  .right .data .weather-details p {
+    margin-left: 15px;
+  }
+  .right .data .weather-details .details-table-wrapper .right-table {
+    margin-right: 20px;
+  }
+  .right .data .weather-details .details-table-wrapper .left-table ul {
+    padding-left: 15px;
+  }
+  .right .data .next-days p {
+    margin-left: 15px;
+  }
+  .right .data .next-days .next-days-table-wrapper .right-table {
+    margin-right: 20px;
+  }
+  .right .data .next-days .left-table ul {
+    padding-left: 15px;
+  }
+  .left .main-info .temperature .temp {
+    font-size: 210px;
+  }
+  .left .main-info .weather-description {
+    margin-bottom: 40px;
+  }
+  .left .main-info .weather-description .description {
+    font-size: 30px;
+  }
+  .left .main-info .weather-description .quote {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+  .left {
+    width: 70vw;
+  }
+  .right {
+    width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .left {
+    width: 65vw;
+  }
+  .left .additional-info .date-wrapper .time {
+    margin-left: 30px;
+  }
+  .left .additional-info .date-wrapper p {
+    font-size: 20px;
+  }
+  .left .additional-info .location-wrapper {
+    margin-right: 20px;
+  }
+  .left .additional-info .location-wrapper .location {
+    font-size: 20px;
+  }
+  .right {
+    width: 35vw;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

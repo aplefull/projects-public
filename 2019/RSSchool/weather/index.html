@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weather!</title>
+    <link rel="icon" href="assets/favicon/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="first-loading-overlay">
+            <p>Loading...</p>
+        </div>
+        <div class="loading-overlay">
+            <p>Hold on a second..</p>
+        </div>
+        <div class="nav-mobile">
+            <input class="mobile-input">
+            <img src="assets/icons/search.png">
+        </div>
+        <div class="location-wrapper-mobile">
+            <p class="city-name-mobile"></p>
+            <div class="date-wrapper">
+                <p class="time"></p>
+                <p class="period"></p>
+                <p class="dash">—</p>
+                <p class="week-day"></p>
+                <p class="day"></p>
+                <p class="month"></p>
+                <p class="year"></p>
+            </div>
+        </div>
+        <div class="main-info-mobile">
+            <div class="temperature-mobile">
+                <p class="temp"></p>
+                <p class="degree">°</p>
+            </div>
+            <div class="weather-description-mobile">
+                <img class="mobile-icon">
+                <p class="description"></p>
+            </div>
+        </div>
+        <div class="additional-info-mobile">
+            <div class="wind">
+                <p class="name">Wind</p>
+                <p class="value"></p>
+                <p class="units">m/s</p>
+                <div class="bar-wrapper">
+                    <div class="bar-back"></div>
+                    <div class="bar-front"></div>
+                </div>
+            </div>
+            <div class="rain">
+                <p class="name">Rain</p>
+                <p class="value"></p>
+                <p class="units">%</p>
+                <div class="bar-wrapper">
+                    <div class="bar-back"></div>
+                    <div class="bar-front"></div>
+                </div>
+            </div>
+            <div class="humidity">
+                <p class="name">Humidity</p>
+                <p class="value"></p>
+                <p class="units">%</p>
+                <div class="bar-wrapper">
+                    <div class="bar-back"></div>
+                    <div class="bar-front"></div>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="nav">
+                <div class="celsius">°C</div>
+                <div class="fahrenheit">°F</div>
+            </div>
+            <div class="main-info">
+                <div class="temperature">
+                    <p class="temp"></p>
+                    <p class="degree">°</p>
+                </div>
+                <div class="weather-description">
+                    <p class="description"></p>
+                    <p class="quote"></p>
+                </div>
+            </div>
+            <div class="additional-info">
+                <div class="date-wrapper">
+                    <p class="time"></p>
+                    <p class="period"></p>
+                    <p class="dash">—</p>
+                    <p class="week-day"></p>
+                    <p class="day"></p>
+                    <p class="month"></p>
+                    <p class="year"></p>
+                </div>
+                <div class="location-wrapper">
+                    <p class="location"></p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="city">
+                <div class="name-wrapper">
+                    <p class="city-text">City</p>
+                    <p class="city-name"></p>
+                </div>
+                <button>change</button>
+            </div>
+            <div class="data">
+                <div class="desktop-input-wrapper">
+                    <input class="desktop-input">
+                    <button>
+                        <img src="assets/icons/search.png">
+                    </button>
+                </div>
+                <div class="weather-details">
+                    <p>Weather details: </p>
+                    <div class="details-table-wrapper">
+                        <div class="left-table">
+                            <ul>
+                                <li>Feels like</li>
+                                <li>Precipitation</li>
+                                <li>Cloudiness</li>
+                                <li>Humidity</li>
+                                <li>Wind</li>
+                            </ul>
+                        </div>
+                        <div class="right-table">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="next-days">
+                    <p>Next days: </p>
+                    <div class="next-days-table-wrapper">
+                        <div class="left-table">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="right-table">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script type="module" src="time.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

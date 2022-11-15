@@ -1,0 +1,854 @@
+@font-face {
+	font-family: 'Eaves';
+	src: url(assets/fonts/MrEavesXLModOT-Reg.ttf);
+}
+
+@font-face {
+	font-family: 'Eaves-Bold';
+	src: url(assets/fonts/MrEavesXLModOT-Heavy.ttf);
+}
+
+@font-face {
+	font-family: 'Eaves-Light';
+	src: url(assets/fonts/MrEavesXLModOT-Light.ttf);
+}
+
+@font-face {
+	font-family: 'Montserrat-Bold';
+	src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #161616;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #303030;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #070707;
+}
+
+::selection {
+	color: orange;
+}
+
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: black;
+	background-image: url('assets/images/desktop/default.jpg');
+	margin: 0px;
+	height: 100vh;
+	transition: ease-in-out 1s;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100vh;
+}
+
+.nav-mobile,
+.location-wrapper-mobile,
+.main-info-mobile,
+.additional-info-mobile {
+	display: none;
+}
+
+.first-loading-overlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	transition: ease-in-out 1s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	p {
+		font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+		font-size: 2vw;
+		color: white;
+	}
+}
+
+.loading-overlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	transition: ease-in-out .5s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+	opacity: 0.8;
+
+	p {
+		font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+		font-size: 30px;
+		color: white;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	html {
+		padding: 0px;
+		margin: 0px;
+		height: 100%;
+	}
+
+	body {
+		padding: 0px;
+		margin: 0px;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		background-size: unset;
+	}
+
+	main {
+		flex-direction: column;
+	}
+
+	.first-loading-overlay {
+		p{
+			font-size: 7vw;
+		}
+	}
+
+	.left,
+	.right {
+		display: none !important;
+	}
+
+	.nav-mobile {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		input {
+			width: 0px;
+			opacity: 0;
+			height: 20px;
+			margin-top: 20px;
+			margin-left: 10vw;
+			margin-bottom: 20px;
+			padding-left: 5px;
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			border-radius: 5px;
+			background-color: rgba(255, 255, 255, 0);
+			color: white;
+			font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+
+			transition-property: width, opacity;
+			transition-duration: .5s, .3s;
+		}
+
+		input:focus {
+			outline: none;
+		}
+
+		img {
+			width: 25px;
+			height: 25px;
+			margin-right: 20px;
+			margin-top: 20px;
+		}
+	}
+
+	.location-wrapper-mobile {
+		display: flex;
+		flex-direction: column;
+
+		.city-name-mobile {
+			color: white;
+			font-family: Eaves-Bold, Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 30px;
+			margin: 0px;
+			margin-left: 10vw;
+		}
+
+		.date-wrapper {
+			margin-top: -5px;
+			font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 16px;
+			color: white;
+			display: flex;
+			height: 40px;
+
+			.time {
+				margin-left: 10vw;
+			}
+
+			.period,
+			.dash,
+			.week-day,
+			.day,
+			.month,
+			.year {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	.main-info-mobile {
+		display: flex;
+		flex-direction: column;
+		width: 90vw;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+		.temperature-mobile {
+			margin-top: 150px;
+			margin-left: 5vw;
+			display: flex;
+
+			.temp {
+				margin: 0px;
+				color: white;
+				font-size: 140px;
+				font-family: Eaves-Light, Verdana, Geneva, Tahoma, sans-serif;
+				font-weight: 600;
+			}
+
+			.degree {
+				margin: 0px;
+				color: white;
+				font-size: 70px;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+			}
+		}
+
+		.weather-description-mobile {
+			margin-top: -10px;
+			margin-left: 5vw;
+			display: flex;
+
+			img {
+				height: 30px;
+				width: auto;
+			}
+
+			.description {
+				color: white;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-weight: 400;
+				font-size: 35px;
+				margin: 0;
+				margin-bottom: 30px;
+				margin-left: 20px;
+			}
+		}
+	}
+
+	.additional-info-mobile {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 90vw;
+		margin: 0 auto;
+
+		.wind,
+		.rain,
+		.humidity {
+			width: 30vw;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+
+			p {
+				margin: 0px;
+				text-align: center;
+			}
+
+			.name {
+				color: rgba(180, 184, 187, 0.9);
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 20px;
+				font-weight: 400;
+				margin-bottom: 20px;
+			}
+
+			.value {
+				color: white;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 50px;
+				margin-left: -5px;
+			}
+
+			.units {
+				color: white;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 20px;
+				margin-left: -5px;
+			}
+		}
+	}
+
+	.bar-wrapper {
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 15px;
+
+		.bar-back,
+		.bar-front {
+			width: 100%;
+			height: 4px;
+			border-radius: 5px;
+		}
+
+		.bar-back {
+			background-color: rgba(174, 181, 185, 0.5);
+		}
+
+		.bar-front {
+			width: 0%;
+			background-color: rgb(35, 201, 109);
+			margin-top: -4px;
+			transition: ease-in-out 1.6s;
+		}
+	}
+}
+
+.left {
+	height: 100%;
+	width: 75vw;
+	display: flex;
+	flex-direction: column;
+	transition: ease-in-out .5s;
+
+	.nav {
+		width: 100%;
+		height: 10vh;
+		display: flex;
+		margin-top: 20px;
+
+		.celsius {
+			width: 44px;
+			height: 44px;
+			margin-left: 60px;
+			border-radius: 5px 0 0 5px;
+			transition: ease-in 0.15s;
+			background: rgba(180, 184, 187, 0.4);
+			vertical-align: middle;
+			font-family: Montserrat-Bold;
+			font-weight: bold;
+			text-align: center;
+			font-size: 14px;
+			line-height: 44px;
+			color: #ffffff;
+			user-select: none;
+		}
+
+		.fahrenheit {
+			width: 44px;
+			height: 44px;
+			border-radius: 0 5px 5px 0;
+			transition: ease-in 0.15s;
+			background: rgba(180, 184, 187, 0.4);
+			vertical-align: middle;
+			font-family: Montserrat-Bold;
+			font-weight: bold;
+			text-align: center;
+			font-size: 14px;
+			line-height: 44px;
+			color: #ffffff;
+			user-select: none;
+		}
+
+		.celsius:hover,
+		.fahrenheit:hover {
+			cursor: pointer;
+			background: rgba(67, 135, 187, 0.4);
+		}
+
+		input {
+			width: 274px;
+			height: 44px;
+			margin-left: 60px;
+			border-radius: 5px 0 0 5px;
+			background: rgba(76, 82, 85, 0.4);
+			border: 1px solid rgba(228, 227, 227, 0.2);
+			box-sizing: border-box;
+			color: white;
+			font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+			padding-left: 20px;
+			transition: ease-in 0.15s;
+		}
+
+		button {
+			width: 101px;
+			height: 44px;
+			border-radius: 0 5px 5px 0;
+			transition: ease-in 0.15s;
+			background: rgba(174, 181, 185, 0.5);
+			border: none;
+			color: white;
+			font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			line-height: 17px;
+			text-align: center;
+		}
+	}
+
+	.main-info {
+		width: 100%;
+		height: 70vh;
+		display: flex;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		align-items: flex-end;
+		min-height: 350px;
+
+		.temperature {
+			margin-left: 60px;
+			display: flex;
+			transition: ease-in-out .5s;
+
+			.temp {
+				margin: 0px;
+				color: white;
+				font-size: 250px;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				transition: ease-in-out .5s;
+			}
+
+			.degree {
+				margin: 0px;
+				color: white;
+				font-size: 100px;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				transition: ease-in-out .5s;
+			}
+		}
+
+		.weather-description {
+			margin-left: 40px;
+			margin-right: 10px;
+			margin-bottom: 60px;
+			color: white;
+			transition: ease-in-out .5s;
+
+			.description {
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-weight: 600;
+				font-size: 40px;
+				margin-bottom: 10px;
+				transition: ease-in-out .5s;
+			}
+
+			.quote {
+				font-family: Eaves-Light, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 30px;
+				margin: 0px;
+				transition: ease-in-out .5s;
+			}
+		}
+	}
+
+	.additional-info {
+		width: 100%;
+		height: 10vh;
+		min-height: 140px;
+		display: flex;
+		justify-content: space-between;
+
+		.date-wrapper {
+			margin-top: 40px;
+			font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 25px;
+			color: white;
+			display: flex;
+			transition: ease-in-out .5s;
+
+			.time {
+				margin-left: 60px;
+				transition: ease-in-out .5s;
+			}
+
+			.period,
+			.dash,
+			.week-day,
+			.day,
+			.month,
+			.year {
+				margin-left: 5px;
+				transition: ease-in-out .5s;
+			}
+		}
+
+		.location-wrapper {
+			margin-top: 40px;
+			margin-right: 60px;
+			margin-left: 20px;
+			transition: ease-in-out .5s;
+
+			.location {
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 25px;
+				color: white;
+				transition: ease-in-out .5s;
+			}
+		}
+	}
+}
+
+.right {
+	height: 100%;
+	width: 25vw;
+	transition: ease-in-out .5s;
+
+	.city {
+		width: 100%;
+		height: 15vh;
+		min-height: 70px;
+		background-color: rgb(20, 20, 20);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.name-wrapper {
+			display: flex;
+			align-items: center;
+			width: 60%;
+
+			.city-text {
+				color: white;
+				font-family: Eaves-light, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 20px;
+				opacity: 0.8;
+				margin: 0px;
+				margin-left: 40px;
+				transition: ease-in-out .5s;
+			}
+
+			.city-name {
+				color: white;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 130%;
+				font-weight: 600;
+				word-break: break-all;
+				margin: 0px;
+				margin-left: 20px;
+			}
+		}
+
+		button {
+			width: 100px;
+			height: 35px;
+			margin-right: 60px;
+			margin-left: 20px; 
+			border: 1px solid rgba($color: white, $alpha: 0.3);
+			background-color: rgb(20, 20, 20);
+			color: white;
+			font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 14px;
+			transition: ease-in-out 0.5s;
+		}
+
+		button:hover {
+			cursor: pointer;
+		}
+
+		button:focus {
+			outline: none;
+		}
+
+		button:active {
+			color: aqua;
+			transition: ease-in-out 0.1s;
+		}
+	}
+
+	.data {
+		width: 100%;
+		height: 85vh;
+		overflow-y: auto;
+		background-color: #fff;
+		overflow-x: hidden;
+
+		.desktop-input-wrapper {
+			height: 40px;
+			width: 100%;
+			display: flex;
+			margin-top: -40px;
+			transition: ease-in-out .5s;
+
+			input {
+				width: 90%;
+				height: 39px;
+				padding: 0px;
+				padding-left: 10px;
+				border: none;
+				border-bottom: 1px solid rgba(76, 82, 85, 0.4);
+
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 26px;
+			}
+
+			button {
+				width: 40px;
+				height: 40px;
+				padding: 0px;
+				border: none;
+				border-bottom: 1px solid rgba(76, 82, 85, 0.4);
+				background-color: rgb(20, 20, 20);
+
+				img {
+					width: 40%;
+				}
+			}
+
+			button:hover {
+				cursor: pointer;
+			}
+
+			button:focus,
+			input:focus {
+				outline: none;
+			}
+		}
+
+		.weather-details {
+			display: flex;
+			flex-direction: column;
+			transition: ease-in-out .5s;
+
+			p {
+				color: black;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 20px;
+				font-weight: 600;
+				margin-top: 30px;
+				margin-left: 40px;
+				transition: ease-in-out .5s;
+			}
+
+			.details-table-wrapper {
+				display: flex;
+				justify-content: space-between;
+				transition: ease-in-out .5s;
+
+				.left-table {
+					margin-left: 0px;
+					list-style-type: none;
+					color: gray;
+					font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+					font-size: 18px;
+
+					ul {
+						list-style-type: none;
+						transition: ease-in-out .5s;
+
+						li {
+							margin-bottom: 10px;
+						}
+					}
+				}
+
+				.right-table {
+					margin-right: 60px;
+					color: black;
+					font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+					font-size: 18px;
+					transition: ease-in-out .5s;
+
+					ul {
+						list-style-type: none;
+
+						li {
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+		}
+
+		.next-days {
+			display: flex;
+			flex-direction: column;
+
+			p {
+				color: black;
+				font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 20px;
+				font-weight: 600;
+				margin-top: 30px;
+				margin-left: 40px;
+				transition: ease-in-out .5s;
+			}
+
+			.next-days-table-wrapper {
+				display: flex;
+				justify-content: space-between;
+				transition: ease-in-out .5s;
+
+				.left-table {
+					margin-left: 0px;
+					list-style-type: none;
+					color: gray;
+					font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+					font-size: 18px;
+
+					ul {
+						list-style-type: none;
+						transition: ease-in-out .5s;
+
+						li {
+							margin-bottom: 10px;
+						}
+					}
+				}
+
+				.right-table {
+					margin-right: 60px;
+					color: black;
+					font-family: Eaves, Verdana, Geneva, Tahoma, sans-serif;
+					font-size: 18px;
+					transition: ease-in-out .5s;
+
+					ul {
+						list-style-type: none;
+
+						li {
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1350px) {
+	.right {
+		.city {
+			.name-wrapper {
+				.city-text {
+					margin-left: 20px;
+				}
+			}
+
+			button {
+				margin-right: 20px;
+			}
+		}
+
+		.data {
+			.weather-details {
+				p {
+					margin-left: 15px;
+				}
+
+				.details-table-wrapper {
+					.right-table {
+						margin-right: 20px;
+					}
+
+					.left-table {
+						ul {
+							padding-left: 15px;
+						}
+					}
+				}
+			}
+
+			.next-days {
+				p {
+					margin-left: 15px;
+				}
+
+				.next-days-table-wrapper {
+					.right-table {
+						margin-right: 20px;
+					}
+				}
+
+				.left-table {
+					ul {
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+	}
+
+	.left {
+		.main-info {
+			.temperature {
+				.temp {
+					font-size: 210px;
+				}
+			}
+
+			.weather-description {
+				margin-bottom: 40px;
+
+				.description {
+					font-size: 30px;
+				}
+
+				.quote {
+					font-size: 25px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+	.left {
+		width: 70vw;
+	}
+
+	.right {
+		width: 30vw;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.left {
+		width: 65vw;
+
+		.additional-info {
+			.date-wrapper {
+				.time {
+					margin-left: 30px;
+				}
+
+				p {
+					font-size: 20px;
+				}
+			}
+
+			.location-wrapper {
+				margin-right: 20px;
+
+				.location {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.right {
+		width: 35vw;
+	}
+}
